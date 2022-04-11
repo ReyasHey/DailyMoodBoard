@@ -1,7 +1,7 @@
 var year;
 var month;
 
-var reply = 0;
+var ColourReply = 0;
 
 // WOD = Word of the Day
 // COD = Colours of the Day
@@ -75,11 +75,6 @@ function getPstDate () {
     window.localStorage.setItem("day", day);
     window.localStorage.setItem("hours", hours);
 }// getPstDate
-
-
-
-
-
 
 
 
@@ -162,10 +157,6 @@ function hexToday () {          // Returns a chopped up or the word, ceasar cyph
 
 
 
-
-
-
-
 function getWOD () {
     var todayWord;
     var WODDefinition1;
@@ -204,6 +195,56 @@ function getWOD () {
 
 
 
+async function getSingularWOD (urlWord) {
+    var urlStart = "https://api.wordnik.com/v4/word.json/";
+    urlWord = lowercaseStart(urlWord);
+    var urlEnd = "/definitions?limit=1&includeRelated=false&sourceDictionaries=wiktionary&useCanonical=false&includeTags=false&api_key=cidzekce26f4oemqtvfg63ql8etftods14e47y4dtd0jiji0a";
+
+    var wordLength = urlWord.length - 1;
+    var resultTextLength;
+    var newWOD;
+
+    return fetch(urlStart + urlWord + urlEnd)      // Call API
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+
+            if (data[0].text.slice(0, 6) == "Plural") {     // If Word of the Day is plural, change it, its pronounciation and definition to singular
+                resultTextLength = data[0].text.length;
+
+                newWOD = data[0].text.slice(resultTextLength - 8 - wordLength, resultTextLength - 8);
+                newWOD = capitalStart(newWOD);
+
+                window.localStorage.setItem("WOD", newWOD);
+            }
+        }).catch((error) => {
+            console.error('Error:' + error);
+        });
+}// getSingularWOD
+
+
+
+async function getWODDefinition (urlWord) {
+    var urlStart = "https://api.wordnik.com/v4/word.json/";
+    urlWord = lowercaseStart(urlWord);
+    var urlEnd = "/definitions?limit=2&includeRelated=false&sourceDictionaries=wiktionary&useCanonical=false&includeTags=false&api_key=cidzekce26f4oemqtvfg63ql8etftods14e47y4dtd0jiji0a";
+
+    return fetch(urlStart + urlWord + urlEnd)      // Call API
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+
+            window.localStorage.setItem("WODDefinition1", data[0].text);
+
+            if (data[1].text)
+                window.localStorage.setItem("WODDefinition2", data[1].text);
+        }).catch((error) => {
+            console.error('Error:' + error);
+        });
+}// getSingularWOD
+
+
+
 function getPhonetic (urlWord) {
     var urlStart = "https://api.wordnik.com/v4/word.json/";
     urlWord = lowercaseStart(urlWord);
@@ -216,7 +257,7 @@ function getPhonetic (urlWord) {
         .then(data => {
             console.log(data);
 
-            WODPhonetic = data.raw;
+            WODPhonetic = data[0].raw;
 
             window.localStorage.setItem("WODPhonetic", WODPhonetic);
         }).catch((error) => {
@@ -226,14 +267,9 @@ function getPhonetic (urlWord) {
 
 
 
-
-
-
-
-
 function getCOD (hex) {
     return $.ajax({
-        url: 'http://www.colourlovers.com/api/palettes',
+        url: 'https://www.colourlovers.com/api/palettes',
         dataType: 'jsonp',                  // Ask for reply in jsonp hence no CORS
         data: {
             format: 'json',                 // Tell we're sending data through json
@@ -250,18 +286,13 @@ function getCOD (hex) {
                 window.localStorage.setItem("COD4", data[0].colors[3]);
                 window.localStorage.setItem("COD5", data[0].colors[4]);
 
-                reply = 0;
+                ColourReply = 0;
             } else {                        // Reply is undefined if there are no palettes with the proposed color
-                reply = 1;
+                ColourReply = 1;
             }
         },
     });
 }// getCOD (Colours of the Day)
-
-
-
-
-
 
 
 
@@ -277,14 +308,16 @@ async function limitRate () {
         window.localStorage.setItem("reqDay", today);
         // Wordnik API
         await getWOD();
+        await getSingularWOD(window.localStorage.getItem("WOD"));
         await getPhonetic(window.localStorage.getItem("WOD"));
+        await getWODDefinition(window.localStorage.getItem("WOD"));
 
         // ColourLover API
         hex = hexToday();
         await getCOD(hex);
 
         // Check if the operation worked else -> change hex, repeat
-        for (let i = 0; reply == 1 && i < 5; i++){     // Return = 0 : no errors       // 1 : API error/s      // 2 : color palette with hex doesnt exist
+        for (let i = 0; ColourReply == 1 && i < 5; i++){     // Return = 0 : no errors       // 1 : API error/s      // 2 : color palette with hex doesnt exist
             hex = changeHex(hex);
             await getCOD(hex);
         }
