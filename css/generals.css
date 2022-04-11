@@ -1,0 +1,29 @@
+#WODPhonetic::before {
+    content: '\0000a0';
+}
+
+.colors {
+    overflow: hidden;
+
+    user-select: text;
+}
+
+.colors::after {
+    position: relative;
+    display: block;
+    content: attr(title);
+
+    text-align: center;
+
+    background-color: #fefefe;
+    /* dark mode = rgb(58, 58, 58) */
+
+    height: 4vh;
+    top: 15vh;
+
+    transition: top 0.05s;
+}
+
+.colors:hover::after {
+    top: 11vh;
+}
