@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,42 +19,42 @@
         <script src="./debug/debug.js" defer></script>
     </head>
     <body onload="setElements(), initializeMode()">
-        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 60%; height: 100%; margin: auto; justify-content: space-evenly;">
-            <div style="text-align: center;">
-                <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
-                    <h1>Daily Mood Board</h1>
-                    <svg id="switch" onmousedown="changeMode()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" style="transform: rotate(270deg); height: 5vh;"><path d="M384 64C490 64 576 149.1 576 256C576 362 490 448 384 448H192C85.96 448 0 362 0 256C0 149.1 85.96 64 192 64H384zM384 352C437 352 480 309 480 256C480 202.1 437 160 384 160C330.1 160 288 202.1 288 256C288 309 330.1 352 384 352z"/></svg>
-                </div>
-
-                <p style="font-size: 25px; font-weight: 400;">  Mood Board to jostle mood and/or inspire creative juices <br>
-                                                                That refreshes daily</p>
+        <header style="text-align: center; height: 20%; padding-top: 5%;">
+            <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+                <h1>Daily Mood Board</h1>
+                <svg id="switch" onmousedown="changeMode()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" style="transform: rotate(270deg); height: 5vh;"><path d="M384 64C490 64 576 149.1 576 256C576 362 490 448 384 448H192C85.96 448 0 362 0 256C0 149.1 85.96 64 192 64H384zM384 352C437 352 480 309 480 256C480 202.1 437 160 384 160C330.1 160 288 202.1 288 256C288 309 330.1 352 384 352z"/></svg>
             </div>
 
+            <p style="font-size: 1.5rem; font-weight: 400;">  Mood Board to jostle mood and/or inspire creative juices <br>
+                                                            That refreshes daily</p>
+        </header>
+
+        <main style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 60%; height: 70%; margin-left: auto; margin-right: auto; justify-content: space-evenly;">
             <!-- Word of the Day -->
-            <div id="WODPost" style="display: flex; flex-direction: column; align-items: center; padding: 1vw; border-radius: 0.25vw;">
+            <article id="WODPost" style="display: flex; flex-direction: column; align-items: center; padding: 1vw; border-radius: 0.25vw;">
                 <h2>Word of the Day</h1>
 
                 <div style="display: flex; flex-direction: row;">
-                    <p id="WOD" style="font-weight: 500; font-size: 32px;">Word</p>
-                    <P id="WODPhonetic" style="font-weight: 500; font-size: 32px;">&nbsp;• /wɜːd/</P>
+                    <p id="WOD" style="font-weight: 500; font-size: 2rem;">Word</p>
+                    <P id="WODPhonetic" style="font-weight: 500; font-size: 2rem;">&nbsp;• /wɜːd/</P>
                 </div>
 
                 <div style="display: block; width: 100%;">
-                    <span id="WODDefinition1no" style="font-size: 22px; font-weight: 500;">1.&nbsp;&nbsp;</span>
-                    <span id="WODDefinition1" style="font-size: 25px; font-weight: 400;">Words</span>
+                    <span id="WODDefinition1no" style="font-size: 1.5rem; font-weight: 500;">1.&nbsp;&nbsp;</span>
+                    <span id="WODDefinition1" style="font-size: 1.5rem; font-weight: 400;">Words</span>
                 </div>
 
                 <div style="display: flex; flex-direction: row; align-items: baseline; width: 100%; justify-content: center;">
-                    <p id="WODDefinition2no" style="font-size: 22px; font-weight: 500;">2.&nbsp;&nbsp;</p>
-                    <p id="WODDefinition2" style="font-size: 25px; font-weight: 400;">Words</p>
+                    <p id="WODDefinition2no" style="font-size: 1.5rem; font-weight: 500;">2.&nbsp;&nbsp;</p>
+                    <p id="WODDefinition2" style="font-size: 1.5rem; font-weight: 400;">Words</p>
                 </div>
-            </div>
+            </article>
 
             <!-- Colors of the Day -->
-            <div id="CODPost" style="display: flex; flex-direction: column; align-items: center; padding-top: 1vw; border-radius: 0.25vw;">
+            <article id="CODPost" style="display: flex; flex-direction: column; align-items: center; padding-top: 1vw; border-radius: 0.25vw;">
                 <h2>Colors of the Day</h2>
 
-                <p id="CODTitle" style="font-weight: 500; font-size: 32px;">"Title"</p>
+                <p id="CODTitle" style="font-weight: 500; font-size: 2rem;">"Title"</p>
 
                 <div style="display: flex; flex-direction: row;">
                     <div id="color1" class="colors" style="background-color: black; width: 6vw; height: 15vh;"></div>
@@ -63,29 +63,29 @@
                     <div id="color4" class="colors" style="background-color: black; width: 6vw; height: 15vh;"></div>
                     <div id="color5" class="colors" style="background-color: black; width: 6vw; height: 15vh;"></div>
                 </div>
-            </div>
+            </article>
 
             <!-- Just spacer at the bottom of the page -->
             <div style="height: 10%;"></div>
+        </main>
+
+        <!-- Footer -->
+        <footer style="display: flex; flex-direction: column; margin-right: auto; margin-left: auto; justify-content: center; position: absolute; left: 0; right: 0; bottom: 0; width: max-content;">
+            <a href="https://www.wordnik.com/" target="_blank"><img src="./imgs/logos/Wordnik.png" alt="Wordnik Logo" style="aspect-ratio: 8.35/1; height: 3vh ; width: auto;"></a>
+            <a href="https://www.colourlovers.com/" target="_blank"><img src="./imgs/logos/ColourLovers.png" alt="ColourLovers Logo" style="aspect-ratio: 8.35/1; height: 3vh ; width: auto;"></a>
+        </footer>
 
 
-            <!-- Footer -->
-            <footer style="display: flex; flex-direction: column; margin-right: auto; margin-left: auto; justify-content: center; position: absolute; left: 0; right: 0; bottom: 0; width: max-content;">
-                <a href="https://www.wordnik.com/" target="_blank"><img src="./imgs/logos/Wordnik.png" alt="Wordnik Logo" style="aspect-ratio: 8.35/1; height: 5vh ; width: auto;"></a>
-                <a href="https://www.colourlovers.com/" target="_blank"><img src="./imgs/logos/ColourLovers.png" alt="ColourLovers Logo" style="aspect-ratio: 8.35/1; height: 5vh ; width: auto;"></a>
-            </footer>
 
-
-
-            <!-- DEBUG -->
-            <!-- <div id="debug" style="text-align: center; width: max-content; position: absolute; left: 2vw;">
-                <h2>&lt;Debugging&gt;</h2>
-                <div style="display: flex; flex-direction: row; width: 100%; justify-content: space-evenly; margin: 1vw 0;">
-                    <button onmousedown="setElements()">Call Wordnik API</button>
-                    <button onmousedown="getCOD()">Call ColourLover API</button>
-                </div>
-                <button onmousedown="clearStorage()">Clear Storage</button>
-            </div> -->
+        <!-- DEBUG -->
+        <div id="debug" style="display: none; text-align: center; width: max-content; position: absolute; left: 2vw; top: 50%; left: 3%;">
+            <h2>&lt;Debugging&gt;</h2>
+            <div style="display: flex; flex-direction: row; width: 100%; justify-content: space-evenly; margin: 1vw 0;">
+                <button onmousedown="setElements()">Call Wordnik API</button>
+                <button onmousedown="getCOD()">Call ColourLover API</button>
+                <button onmousedown="simpleDef()">Call Definition Clear</button>
+            </div>
+            <button onmousedown="clearStorage()">Clear Storage</button>
         </div>
     </body>
 </html>

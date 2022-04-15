@@ -224,6 +224,38 @@ async function getSingularWOD (urlWord) {
 
 
 
+function simpleDef (def) {
+    console.log("OH BOY APIIIIIII" + def);
+
+    var defLength = def.length;
+    var newString = '';
+
+    var lastIndex = 0;
+    for(var i = 0; i < defLength; i++) {
+
+        if(def.charAt(i) == "<") {
+            newString = newString.concat(def.slice(lastIndex, i));
+
+            if(def.charAt(i+1) == "/") {
+
+                i = i+7;
+            } else {
+                i = i+6;
+            }
+
+            lastIndex = i;
+        }// if
+    }// for
+
+    newString = newString.concat(def.slice(lastIndex, defLength));
+
+    console.log(newString);
+
+    return newString;
+}// simpleDef
+
+
+
 async function getWODDefinition (urlWord) {
     var urlStart = "https://api.wordnik.com/v4/word.json/";
     urlWord = lowercaseStart(urlWord);
@@ -234,10 +266,11 @@ async function getWODDefinition (urlWord) {
         .then(data => {
             console.log(data);
 
-            window.localStorage.setItem("WODDefinition1", data[0].text);
+            window.localStorage.setItem("WODDefinition1", simpleDef(data[0].text));
 
-            if (data[1].text)
-                window.localStorage.setItem("WODDefinition2", data[1].text);
+            if (data[1].text){
+                window.localStorage.setItem("WODDefinition2", simpleDef(data[1].text));
+            }
         }).catch((error) => {
             console.error('Error:' + error);
         });
@@ -305,12 +338,22 @@ async function limitRate () {
     var hex;
 
     if (today != reqDay) {        // If today or ever the API has not been called, call it
+        // Clear Local Storage ONLY of this site's variables so to not touch other data
+        window.localStorage.removeItem("WODDefinition1");
+        window.localStorage.removeItem("WODDefinition2");
+        window.localStorage.removeItem("WODPhonetic");
+        window.localStorage.removeItem("CODTitle");
+        window.localStorage.removeItem("COD2");
+        window.localStorage.removeItem("COD3");
+        window.localStorage.removeItem("COD4");
+        window.localStorage.removeItem("COD5");
+        // Today is the last
         window.localStorage.setItem("reqDay", today);
         // Wordnik API
-        await getWOD();
-        await getSingularWOD(window.localStorage.getItem("WOD"));
-        await getPhonetic(window.localStorage.getItem("WOD"));
-        await getWODDefinition(window.localStorage.getItem("WOD"));
+        await getWOD();                                                         //  ! TODO: Check if
+        await getSingularWOD(window.localStorage.getItem("WOD"));               //  ! TODO: We exceeded
+        await getPhonetic(window.localStorage.getItem("WOD"));                  //  ! TODO: The amount of calls
+        await getWODDefinition(window.localStorage.getItem("WOD"));             //  ! TODO: For our free key
 
         // ColourLover API
         hex = hexToday();
