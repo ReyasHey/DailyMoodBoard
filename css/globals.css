@@ -1,6 +1,6 @@
 * {
     margin: 0;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
 
     font-family: Poppins, sans-serif;
 }
@@ -53,11 +53,42 @@ button {
     min-width: max-content;
     padding: 3%;
     border-radius: 15px;
-    font-size: 15px;
+    font-size: 1rem;
 }
 
 button:hover {
     color:rgb(248, 252, 255);
     background-color: #464646;
     border: solid 2px rgb(255, 255, 255);
+}
+
+
+@media only screen and (max-aspect-ratio: 13/16) {     /* Mobile */
+    * {
+        font-size: 0.9rem;
+    }
+}
+
+@media only screen and (max-aspect-ratio: 12/16) {     /* Mobile */
+    * {
+        font-size: 0.8rem;
+    }
+}
+
+@media only screen and (max-aspect-ratio: 11/16) {     /* Mobile */
+    * {
+        font-size: 0.7rem;
+    }
+}
+
+@media only screen and (max-aspect-ratio: 10/16) {     /* Mobile */
+    * {
+        font-size: 0.6rem;
+    }
+}
+
+@media only screen and (max-aspect-ratio: 9/16) {     /* Mobile */
+    * {
+        font-size: 0.5rem;
+    }
 }
