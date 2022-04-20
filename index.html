@@ -6,6 +6,9 @@
         <title>Daily Mood Board</title>
         <meta name="description" content="Mood Board refreshed daily with concepts, color palettes and images">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#e8e6e3">
+
+        <link rel="canonical" href="https://reyashey.github.io/Daily-Mood-Board/">
 
         <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700&display=swap" onload="this.onload=null; this.rel='stylesheet'">        <!-- ! Select only the weight used -->
         <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700&display=swap"></noscript>
@@ -19,10 +22,32 @@
         <script src="./debug/debug.js" defer></script>
     </head>
     <body onload="setElements(), initializeMode()">
-        <header style="text-align: center; height: 20%; padding-top: 5%;">
-            <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
-                <h1>Daily Mood Board</h1>
-                <svg id="switch" onmousedown="changeMode()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" style="transform: rotate(270deg); height: 5vh;"><path d="M384 64C490 64 576 149.1 576 256C576 362 490 448 384 448H192C85.96 448 0 362 0 256C0 149.1 85.96 64 192 64H384zM384 352C437 352 480 309 480 256C480 202.1 437 160 384 160C330.1 160 288 202.1 288 256C288 309 330.1 352 384 352z"/></svg>
+        <header style="text-align: center; height: 20%; padding-top: 3%;">
+            <div style="display: flex; flex-direction: row; align-items: baseline; justify-content: center;">
+                <svg id="switch" onmousedown="changeMode()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" style="transform: rotate(270deg); height: 5vh; z-index: 5;"><path d="M384 64C490 64 576 149.1 576 256C576 362 490 448 384 448H192C85.96 448 0 362 0 256C0 149.1 85.96 64 192 64H384zM384 352C437 352 480 309 480 256C480 202.1 437 160 384 160C330.1 160 288 202.1 288 256C288 309 330.1 352 384 352z"/></svg>
+                <h1 style="z-index: 5;">Daily Mood Board</h1>
+                <input type="checkbox" name="infoBtn" id="infoBtn" class="infoBtn" style="display: none;">
+                <label for="infoBtn" style="z-index: 5;">
+                    <svg id="infoSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="height: 5vh; padding: 0 0.3vw"><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 400c-18 0-32-14-32-32s13.1-32 32-32c17.1 0 32 14 32 32S273.1 400 256 400zM325.1 258L280 286V288c0 13-11 24-24 24S232 301 232 288V272c0-8 4-16 12-21l57-34C308 213 312 206 312 198C312 186 301.1 176 289.1 176h-51.1C225.1 176 216 186 216 198c0 13-11 24-24 24s-24-11-24-24C168 159 199 128 237.1 128h51.1C329 128 360 159 360 198C360 222 347 245 325.1 258z"/></svg>
+                </label>
+                <aside id="info" class="info">
+                    <h2 style="font-size: 2.5rem;">General Information</h2>
+                    <p>Welcome to your Daily Mood Board</p>
+                    <p>Here you'll find a daily word, a daily palette of colors and in the future also daily images</p>
+                    <br>
+                    <h2 style="font-size: 2.5rem;">Who would use this site and what is it for?</h2>
+                    <p>Anybody can freely use this site (up to a certain amount of people per hour)</p>
+                    <p>And this site was created with a simple idea in mind, to jostle creativity in moments of creative draught</p>
+                    <p>But I personally check the site everyday because i could not resist the curiosity of what will the next<br>
+                       Random Word of the Day be, and if it will match the color palette or challenge me to think out of the box <br>
+                       in how they could interact
+                    </p>
+                    <br>
+                    <h2 style="font-size: 2.5rem;">Why is some content not loading?</h2>
+                    <p>Well, it usually takes a couple of seconds to fetch all the information from the APIs</p>
+                    <p>But if it still is not loaded after that, it might mean that our free number of calls to the<br>
+                       APIs has been used all up, I might consider upgrading if this site turns useful for enough people</p>
+                </aside>
             </div>
 
             <p style="font-size: 1.5rem; font-weight: 400;">  Mood Board to jostle mood and/or inspire creative juices <br>

@@ -4,7 +4,13 @@ function initializeMode () {
     switch (mode) {
         case '0':                                       // Make Light mode
             document.body.classList.remove("DarkModeBoard");
+
+            document.getElementById("infoSvg").classList.remove("DarkModeSwitch");
+
             document.getElementById("switch").classList.remove("DarkModeSwitch");
+
+            document.getElementById("info").classList.remove("DarkModePost");
+            document.getElementById("info").classList.add("LightModePost");
 
             document.getElementById("WODPost").classList.remove("DarkModePost");
             document.getElementById("WODPost").classList.add("LightModePost");
@@ -16,8 +22,14 @@ function initializeMode () {
 
         case '1':                                       // Make Dark mode
             document.body.classList.add("DarkModeBoard");
+
+            document.getElementById("infoSvg").classList.add("DarkModeSwitch");
+
             document.getElementById("switch").classList.add("DarkModeSwitch");
             document.getElementById("switch").style.transform = 'rotate(90deg)';
+
+            document.getElementById("info").classList.remove("LightModePost");
+            document.getElementById("info").classList.add("DarkModePost");
 
             document.getElementById("WODPost").classList.remove("LightModePost");
             document.getElementById("WODPost").classList.add("DarkModePost");
@@ -29,6 +41,8 @@ function initializeMode () {
 
         default:                                        // If it doesn't exist
             window.localStorage.setItem("mode", 0);     // Safely create it and run it for the first time in light mode :)
+
+            document.getElementById("info").classList.add("LightModePost");
 
             document.getElementById("WODPost").classList.add("LightModePost");
 
@@ -45,8 +59,14 @@ function changeMode () {
             window.localStorage.setItem("mode", "1");
 
             document.body.classList.add("DarkModeBoard");
+
+            document.getElementById("infoSvg").classList.add("DarkModeSwitch");
+
             document.getElementById("switch").classList.add("DarkModeSwitch");
             document.getElementById("switch").style.transform = 'rotate(90deg)';
+
+            document.getElementById("info").classList.remove("LightModePost");
+            document.getElementById("info").classList.add("DarkModePost");
 
             document.getElementById("WODPost").classList.remove("LightModePost");
             document.getElementById("WODPost").classList.add("DarkModePost");
@@ -61,8 +81,14 @@ function changeMode () {
             window.localStorage.setItem("mode", "0");
 
             document.body.classList.remove("DarkModeBoard");
+
+            document.getElementById("infoSvg").classList.remove("DarkModeSwitch");
+
             document.getElementById("switch").classList.remove("DarkModeSwitch");
             document.getElementById("switch").style.transform = 'rotate(270deg)';
+
+            document.getElementById("info").classList.remove("DarkModePost");
+            document.getElementById("info").classList.add("LightModePost");
 
             document.getElementById("WODPost").classList.remove("DarkModePost");
             document.getElementById("WODPost").classList.add("LightModePost");
