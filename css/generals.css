@@ -1,3 +1,20 @@
+.infoBtn:checked ~ .info {
+    display: flex;
+    flex-direction: column;
+}
+
+.info {
+    display: none;
+    position: absolute;
+    top: 3%;
+
+    padding: 16.9vh 3vw 3vw 3vw;
+
+    border-radius: 0.25vw;
+
+    z-index: 1;
+}
+
 #WODPhonetic::before {
     content: '\0000a0';
 }
