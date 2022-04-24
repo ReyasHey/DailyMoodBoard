@@ -8,6 +8,8 @@
     position: absolute;
     top: 3%;
 
+    background-color: var(--post-bg);
+
     padding: 16.9vh 3vw 3vw 3vw;
 
     border-radius: 0.25vw;
@@ -19,20 +21,21 @@
     content: '\0000a0';
 }
 
-.colors {
+.color {
     overflow: hidden;
 
     user-select: text;
 }
 
-.colors::after {
+.color::after {
     position: relative;
     display: block;
     content: attr(title);
 
     text-align: center;
 
-    background-color: #fefefe;
+    color: var(--text);
+    background-color: var(--post-bg);
     /* dark mode = rgb(58, 58, 58) */
 
     height: 4vh;
@@ -41,6 +44,6 @@
     transition: top 0.05s;
 }
 
-.colors:hover::after {
+.color:hover::after {
     top: 11vh;
 }
