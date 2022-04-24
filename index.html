@@ -6,7 +6,7 @@
         <title>Daily Mood Board</title>
         <meta name="description" content="Mood Board refreshed daily with concepts, color palettes and images">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#e8e6e3">
+        <meta name="theme-color" content="var(--body-bg)">
 
         <link rel="canonical" href="https://reyashey.github.io/Daily-Mood-Board/">
 
@@ -22,13 +22,13 @@
         <script src="./debug/debug.js" defer></script>
     </head>
     <body onload="setElements(), initializeMode()">
-        <header style="text-align: center; height: 20%; padding-top: 3%;">
+        <header style="text-align: center; height: min-content; padding-top: 3%;">
             <div style="display: flex; flex-direction: row; align-items: baseline; justify-content: center;">
-                <svg id="switch" onmousedown="changeMode()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" style="transform: rotate(270deg); height: 5vh; z-index: 5;"><path d="M384 64C490 64 576 149.1 576 256C576 362 490 448 384 448H192C85.96 448 0 362 0 256C0 149.1 85.96 64 192 64H384zM384 352C437 352 480 309 480 256C480 202.1 437 160 384 160C330.1 160 288 202.1 288 256C288 309 330.1 352 384 352z"/></svg>
+                <svg id="switch" onmousedown="changeMode()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" style="transform: rotate(270deg); height: 5vh; z-index: 5; fill: var(--switch-fill)"><path d="M384 64C490 64 576 149.1 576 256C576 362 490 448 384 448H192C85.96 448 0 362 0 256C0 149.1 85.96 64 192 64H384zM384 352C437 352 480 309 480 256C480 202.1 437 160 384 160C330.1 160 288 202.1 288 256C288 309 330.1 352 384 352z"/></svg>
                 <h1 style="z-index: 5;">Daily Mood Board</h1>
                 <input type="checkbox" name="infoBtn" id="infoBtn" class="infoBtn" style="display: none;">
                 <label for="infoBtn" style="z-index: 5;">
-                    <svg id="infoSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="height: 5vh; padding: 0 0.3vw"><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 400c-18 0-32-14-32-32s13.1-32 32-32c17.1 0 32 14 32 32S273.1 400 256 400zM325.1 258L280 286V288c0 13-11 24-24 24S232 301 232 288V272c0-8 4-16 12-21l57-34C308 213 312 206 312 198C312 186 301.1 176 289.1 176h-51.1C225.1 176 216 186 216 198c0 13-11 24-24 24s-24-11-24-24C168 159 199 128 237.1 128h51.1C329 128 360 159 360 198C360 222 347 245 325.1 258z"/></svg>
+                    <svg id="infoSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="height: 5vh; padding: 0 0.3vw; fill: var(--switch-fill);"><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 400c-18 0-32-14-32-32s13.1-32 32-32c17.1 0 32 14 32 32S273.1 400 256 400zM325.1 258L280 286V288c0 13-11 24-24 24S232 301 232 288V272c0-8 4-16 12-21l57-34C308 213 312 206 312 198C312 186 301.1 176 289.1 176h-51.1C225.1 176 216 186 216 198c0 13-11 24-24 24s-24-11-24-24C168 159 199 128 237.1 128h51.1C329 128 360 159 360 198C360 222 347 245 325.1 258z"/></svg>
                 </label>
                 <aside id="info" class="info">
                     <h2 style="font-size: 2.5rem;">General Information</h2>
@@ -54,7 +54,7 @@
 
         <main style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 60%; height: 70%; margin-left: auto; margin-right: auto; justify-content: space-evenly;">
             <!-- Word of the Day -->
-            <article id="WODPost" style="display: flex; flex-direction: column; align-items: center; padding: 1vw; border-radius: 0.25vw;">
+            <article id="WODPost" style="display: flex; flex-direction: column; align-items: center; padding: 1vw; border-radius: 0.25vw; background-color: var(--post-bg);">
                 <h2>Word of the Day</h1>
 
                 <div style="display: flex; flex-direction: row;">
@@ -74,17 +74,17 @@
             </article>
 
             <!-- Colors of the Day -->
-            <article id="CODPost" style="display: flex; flex-direction: column; align-items: center; padding-top: 1vw; border-radius: 0.25vw;">
+            <article id="CODPost" style="display: flex; flex-direction: column; align-items: center; padding-top: 1vw; border-radius: 0.25vw; background-color: var(--post-bg);">
                 <h2>Colors of the Day</h2>
 
                 <p id="CODTitle" style="font-weight: 500; font-size: 2rem;">"Title"</p>
 
-                <div style="display: flex; flex-direction: row;">
-                    <div id="color1" class="colors" style="background-color: black; width: 6vw; height: 15vh;"></div>
-                    <div id="color2" class="colors" style="background-color: black; width: 6vw; height: 15vh;"></div>
-                    <div id="color3" class="colors" style="background-color: black; width: 6vw; height: 15vh;"></div>
-                    <div id="color4" class="colors" style="background-color: black; width: 6vw; height: 15vh;"></div>
-                    <div id="color5" class="colors" style="background-color: black; width: 6vw; height: 15vh;"></div>
+                <div id="colors" style="display: flex; flex-direction: row; background-color: black;">
+                    <div id="color1" class="color" style="width: 6vw; height: 15vh;"></div>
+                    <div id="color2" class="color" style="width: 6vw; height: 15vh;"></div>
+                    <div id="color3" class="color" style="width: 6vw; height: 15vh;"></div>
+                    <div id="color4" class="color" style="width: 6vw; height: 15vh;"></div>
+                    <div id="color5" class="color" style="width: 6vw; height: 15vh;"></div>
                 </div>
             </article>
 

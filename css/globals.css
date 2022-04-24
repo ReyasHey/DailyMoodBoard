@@ -1,40 +1,29 @@
 * {
     margin: 0;
+    font-size: clamp(0.6rem, 0.85vw, 30rem);
     /* box-sizing: border-box; */
-
-    font-family: Poppins, sans-serif;
 }
 
 html {
     height: 100%;
     width: 100%;
+
+    font-family: Poppins, sans-serif;
+
+    --text: black;
+    --body-bg: #ebecee;
+    --post-bg: #fefefe;
+    --switch-fill: black;
 }
 
 body {
     width: 100%;
     height: 100%;
 
-    background-color: #ebecee;
-    color: black;
+    background-color: var(--body-bg);
+    color: var(--text);
     background-repeat: no-repeat;
     background-size: 100%;
-}
-
-.DarkModeBoard {
-    background-color: #121212;
-    color: rgb(232, 230, 227);
-}
-
-.LightModePost {
-    background-color:#fefefe;
-}
-
-.DarkModePost {
-    background-color: #1e1e1e;
-}
-
-.DarkModeSwitch {
-    fill: #fefefe;
 }
 
 h1 {
@@ -50,6 +39,7 @@ p, span {
     font-size: 1.5rem;
 }
 
+/* DEBUG */
 button {
     color:aliceblue;
     background-color: #0b0b0b;
@@ -65,34 +55,4 @@ button:hover {
     background-color: #464646;
     border: solid 2px rgb(255, 255, 255);
 }
-
-
-@media only screen and (max-aspect-ratio: 13/16) {     /* Mobile */
-    * {
-        font-size: 0.9rem;
-    }
-}
-
-@media only screen and (max-aspect-ratio: 12/16) {     /* Mobile */
-    * {
-        font-size: 0.8rem;
-    }
-}
-
-@media only screen and (max-aspect-ratio: 11/16) {     /* Mobile */
-    * {
-        font-size: 0.7rem;
-    }
-}
-
-@media only screen and (max-aspect-ratio: 10/16) {     /* Mobile */
-    * {
-        font-size: 0.6rem;
-    }
-}
-
-@media only screen and (max-aspect-ratio: 9/16) {     /* Mobile */
-    * {
-        font-size: 0.5rem;
-    }
-}
+/* DEBUG */
