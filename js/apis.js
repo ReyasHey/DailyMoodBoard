@@ -262,14 +262,19 @@ async function getWODDefinition (urlWord) {
     return fetch(urlStart + urlWord + urlEnd)      // Call API
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            console.log("Data" + data);
+            console.log("Data 1" + data[0]);
+            console.log("Data 2" + data[1]);
 
             window.localStorage.setItem("WODDefinition1", simpleDef(data[0].text));     // Assign the first definition
+            console.log("First Def");
 
-            if (data[1].text){  // If there is a second definition
+            if (typeof(data[1]) != 'undefined'){  // If there is a second definition
                 window.localStorage.setItem("WODDefinition2", simpleDef(data[1].text)); // Assign the second definition
+                console.log("Second Def Replaced");
             } else {
-                window.localStorage.setItem("WODDefinition2", null);                    // Otherwise delete the second previous definition
+                window.localStorage.setItem("WODDefinition2", 'undefined');                    // Otherwise delete the second previous definition
+                console.log("Second Def Deleted");
             }
         }).catch((error) => {
             console.error('Error:' + error);
@@ -353,7 +358,9 @@ async function limitRate () {
         await getWOD();                                                         //  ! TODO: Check if
         await getSingularWOD(window.localStorage.getItem("WOD"));               //  ! TODO: We exceeded
         await getPhonetic(window.localStorage.getItem("WOD"));                  //  ! TODO: The amount of calls
+        console.log("Asking for ddefinition here");
         await getWODDefinition(window.localStorage.getItem("WOD"));             //  ! TODO: For our free key
+        console.log("Done asking for ddefinition here");
 
         // ColourLover API
         hex = hexToday();
