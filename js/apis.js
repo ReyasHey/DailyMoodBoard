@@ -225,8 +225,6 @@ async function getSingularWOD (urlWord) {
 
 
 function simpleDef (def) {
-    console.log("OH BOY APIIIIIII" + def);
-
     var defLength = def.length;
     var newString = '';
 
@@ -266,10 +264,12 @@ async function getWODDefinition (urlWord) {
         .then(data => {
             console.log(data);
 
-            window.localStorage.setItem("WODDefinition1", simpleDef(data[0].text));
+            window.localStorage.setItem("WODDefinition1", simpleDef(data[0].text));     // Assign the first definition
 
-            if (data[1].text){
-                window.localStorage.setItem("WODDefinition2", simpleDef(data[1].text));
+            if (data[1].text){  // If there is a second definition
+                window.localStorage.setItem("WODDefinition2", simpleDef(data[1].text)); // Assign the second definition
+            } else {
+                window.localStorage.setItem("WODDefinition2", null);                    // Otherwise delete the second previous definition
             }
         }).catch((error) => {
             console.error('Error:' + error);
