@@ -15,7 +15,7 @@ function initializeMode () {
             body.style.setProperty ("--switch-fill", "black");
 
             sun.style.fill = "black";
-            moon.style.fill = "#656565";
+            moon.style.fill = "#747372";
 
             break;
 
@@ -25,7 +25,7 @@ function initializeMode () {
             body.style.setProperty ("--post-bg", "#1e1e1e");
             body.style.setProperty ("--switch-fill", "#e8e6e3");
 
-            sun.style.fill = "#656565";
+            sun.style.fill = "#747372";
             moon.style.fill = "#121212";
 
             break;
@@ -47,7 +47,7 @@ function changeMode () {
             body.style.setProperty ("--post-bg", "#1e1e1e");
             body.style.setProperty ("--switch-fill", "#e8e6e3");
 
-            sun.style.fill = "#656565";
+            sun.style.fill = "#747372";
             moon.style.fill = "#e8e6e3";
 
             break;
@@ -61,7 +61,7 @@ function changeMode () {
             body.style.setProperty ("--switch-fill", "black");
 
             sun.style.fill = "black";
-            moon.style.fill = "#656565";
+            moon.style.fill = "#747372";
 
             break;
 
