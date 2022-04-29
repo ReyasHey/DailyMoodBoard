@@ -1,6 +1,11 @@
+var body = document.getElementsByTagName("body")[0];
+var sun = document.getElementById("LightSwitch");
+var moon = document.getElementById("DarkSwitch");
+
+    // ! SWITCH VAR WILL BE USED IN UPCOMING SWITCHED THROUGHOUT THE SITE
+
 function initializeMode () {
     var mode = window.localStorage.getItem("mode");         // False = Dark Mode    // True = Light Mode
-    var body = document.getElementsByTagName("body")[0];
 
     switch (mode) {
         case '0':                                       // Make Light mode
@@ -8,6 +13,9 @@ function initializeMode () {
             body.style.setProperty ("--body-bg", "#ebecee");
             body.style.setProperty ("--post-bg", "#fefefe");
             body.style.setProperty ("--switch-fill", "black");
+
+            sun.style.fill = "black";
+            moon.style.fill = "#656565";
 
             break;
 
@@ -17,7 +25,8 @@ function initializeMode () {
             body.style.setProperty ("--post-bg", "#1e1e1e");
             body.style.setProperty ("--switch-fill", "#e8e6e3");
 
-            document.getElementById("switch").style.transform = 'rotate(90deg)';
+            sun.style.fill = "#656565";
+            moon.style.fill = "#121212";
 
             break;
 
@@ -28,7 +37,6 @@ function initializeMode () {
 
 function changeMode () {
     var mode = window.localStorage.getItem("mode");         // False = Dark Mode    // True = Light Mode
-    var body = document.getElementsByTagName("body")[0];
 
     switch (mode) {
         case '0':                                       // If Light mode
@@ -39,7 +47,8 @@ function changeMode () {
             body.style.setProperty ("--post-bg", "#1e1e1e");
             body.style.setProperty ("--switch-fill", "#e8e6e3");
 
-            document.getElementById("switch").style.transform = 'rotate(90deg)';
+            sun.style.fill = "#656565";
+            moon.style.fill = "#e8e6e3";
 
             break;
 
@@ -51,7 +60,8 @@ function changeMode () {
             body.style.setProperty ("--post-bg", "#fefefe");
             body.style.setProperty ("--switch-fill", "black");
 
-            document.getElementById("switch").style.transform = 'rotate(-90deg)';
+            sun.style.fill = "black";
+            moon.style.fill = "#656565";
 
             break;
 
