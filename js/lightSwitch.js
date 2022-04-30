@@ -32,6 +32,14 @@ function initializeMode () {
 
         default:                                        // If it doesn't exist
             window.localStorage.setItem("mode", 0);     // Safely create it and run it for the first time in light mode :)
+
+            body.style.setProperty ("--text", "black");
+            body.style.setProperty ("--body-bg", "#ebecee");
+            body.style.setProperty ("--post-bg", "#fefefe");
+            body.style.setProperty ("--switch-fill", "black");
+
+            sun.style.fill = "black";
+            moon.style.fill = "#8f8f8f";
     }
 }
 
