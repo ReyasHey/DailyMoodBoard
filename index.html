@@ -20,6 +20,23 @@
         <script src="./js/apis.js" defer></script>
         <script src="./js/lightSwitch.js" defer></script>
         <script src="./debug/debug.js" defer></script>
+
+        <script src="./js/analytics.js" defer></script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DC5KFZZ9EV"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-DC5KFZZ9EV');
+
+            gtag('consent', 'default', {
+                'ad_storage': 'denied',
+                'analytics_storage': 'denied'
+            });
+        </script>
     </head>
     <body onload="setElements(), initializeMode()">
         <header style="text-align: center; height: min-content; padding-top: 3%;">
@@ -38,53 +55,63 @@
                     <svg id="infoSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="height: 5vh; padding: 0 0.3vw; fill: var(--switch-fill);"><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 400c-18 0-32-14-32-32s13.1-32 32-32c17.1 0 32 14 32 32S273.1 400 256 400zM325.1 258L280 286V288c0 13-11 24-24 24S232 301 232 288V272c0-8 4-16 12-21l57-34C308 213 312 206 312 198C312 186 301.1 176 289.1 176h-51.1C225.1 176 216 186 216 198c0 13-11 24-24 24s-24-11-24-24C168 159 199 128 237.1 128h51.1C329 128 360 159 360 198C360 222 347 245 325.1 258z"/></svg>
                 </label>
                 <aside id="info" class="info">
-                    <h2 style="font-size: 2.5rem;">General Information</h2>
+                    <h2>General Information</h2>
                     <p>Welcome to your Daily Mood Board,</p>
                     <p>Here you'll find a daily word, a daily palette of colors and in the future also daily images.</p>
+
                     <br>
-                    <h2 style="font-size: 2.5rem;">Who would use this site and what is it for?</h2>
+
+                    <h2>Who would use this site and what is it for?</h2>
                     <p>Anybody can freely use this site (up to a certain amount of people per hour).</p>
                     <p>And this site was created with a simple idea in mind, to jostle creativity in moments of creative draught.</p>
                     <p>Althought it can be useful to learn new words, give color to your day and even just to get inspired daily.</p>
+
                     <br>
-                    <h2 style="font-size: 2.5rem;">Why is some content not loading?</h2>
+
+                    <h2>Why is some content not loading?</h2>
                     <p>It usually takes a couple of seconds to fetch all the information from the APIs.</p>
                     <p>But if it still is not loaded after that, it might mean that our free hourly number of calls to the<br>
                        APIs has been used all up, I might consider upgrading if this site turns useful for enough people.<br>
                        For now you can try again in the next hour.</p>
+
+                    <br>
+
+                    <h2>Cookie Policy</h2>
+                    <p>We use cookies to make sure that every user can get the best possible experience.</p>
+                    <p>By continuing to use our services you agree to continue using our cookies.</p>
                 </aside>
             </div>
 
-            <p style="font-size: 1.5rem; font-weight: 400;">  Mood Board to jostle mood and/or inspire creative juices <br>
-                                                            That refreshes daily</p>
+            <p> Mood Board to jostle mood and/or inspire creative juices<br>
+                That refreshes daily</p>
         </header>
 
-        <main style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 60%; height: 70%; margin-left: auto; margin-right: auto; justify-content: space-evenly;">
+        <main>
             <!-- Word of the Day -->
-            <article id="WODPost" style="display: flex; flex-direction: column; align-items: center; padding: 1vw; border-radius: 0.25vw; background-color: var(--post-bg);">
-                <h2>Word of the Day</h1>
+            <article id="WODPost" class="post">
+                <h2>Word of the Day</h2>
 
                 <div style="display: flex; flex-direction: row;">
-                    <p id="WOD" style="font-weight: 500; font-size: 2rem;">Word</p>
-                    <P id="WODPhonetic" style="font-weight: 500; font-size: 2rem;">&nbsp;• /wɜːd/</P>
+                    <h3 id="WOD">Word</h3>
+                    <h3 id="WODPhonetic">&nbsp;• /wɜːd/</h3>
                 </div>
 
                 <div style="display: block; width: 100%;">
-                    <span id="WODDefinition1no" style="font-size: 1.5rem; font-weight: 500;">1.&nbsp;&nbsp;</span>
-                    <span id="WODDefinition1" style="font-size: 1.5rem; font-weight: 400;">Words</span>
+                    <span id="WODDefinition1no" style="font-weight: 500;">1.&nbsp;&nbsp;</span>
+                    <span id="WODDefinition1">Words</span>
                 </div>
 
                 <div style="display: flex; flex-direction: row; align-items: baseline; width: 100%; justify-content: center;">
-                    <p id="WODDefinition2no" style="font-size: 1.5rem; font-weight: 500;">2.&nbsp;&nbsp;</p>
-                    <p id="WODDefinition2" style="font-size: 1.5rem; font-weight: 400;">Words</p>
+                    <p id="WODDefinition2no" style="font-weight: 500;">2.&nbsp;&nbsp;</p>
+                    <p id="WODDefinition2">Words</p>
                 </div>
             </article>
 
             <!-- Colors of the Day -->
-            <article id="CODPost" style="display: flex; flex-direction: column; align-items: center; padding-top: 1vw; border-radius: 0.25vw; background-color: var(--post-bg);">
+            <article id="CODPost" class="post" style="padding: 1vw 0 0 0;">
                 <h2>Colors of the Day</h2>
 
-                <p id="CODTitle" style="font-weight: 500; font-size: 2rem;">"Title"</p>
+                <h3 id="CODTitle">"Title"</h3>
 
                 <div id="colors" style="display: flex; flex-direction: row; background-color: black;">
                     <div id="color1" class="color" style="width: 6vw; height: 15vh;"></div>
@@ -105,6 +132,15 @@
             <a href="https://www.colourlovers.com/" target="_blank"><img src="./imgs/logos/ColourLovers.png" alt="ColourLovers Logo" style="aspect-ratio: 8.35/1; height: 3vh ; width: auto;"></a>
         </footer>
 
+        <aside id="cookies-Popup" class="cookiesPopup">
+            <p>We use cookies to improve user experience and analyze website traffic</p>
+            <p>By clicking "Accept", you agree to our website's cookie use as described in our Cookie Policy.</p>
+            <p>We're working on a preferences section where you'll be able to change your preference in the soon future</p>
+            <div style="display: flex; flex-direction: row; width: 50%; margin: auto; justify-content: space-evenly;">
+                <button class="cookies-button" onclick="hidePopup()">Accept</button>
+                <button class="cookies-button" onclick="denyCookies(), hidePopup()" style="opacity: 0.5;">Decline</button>
+            </div>
+        </aside>
 
 
         <!-- DEBUG -->
@@ -117,5 +153,6 @@
             </div>
             <button onmousedown="clearStorage()">Clear Storage</button>
         </div>
+        <!-- DEBUG -->
     </body>
 </html>
