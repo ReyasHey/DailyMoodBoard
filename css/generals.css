@@ -8,6 +8,8 @@
     position: absolute;
     top: 3%;
 
+    font-size: clamp(0.85rem, 1vw, 8rem);
+
     background-color: var(--post-bg);
 
     padding: 16.9vh 3vw 3vw 3vw;
@@ -33,6 +35,7 @@
     content: attr(title);
 
     text-align: center;
+    font-size: clamp(0.85rem, 0.85vw, 10rem);
 
     color: var(--text);
     background-color: var(--post-bg);
@@ -46,4 +49,64 @@
 
 .color:hover::after {
     top: 11vh;
+}
+
+.cookiesPopup {
+    font-family: Roboto, "Open Sans", Arial, Helvetica;
+    font-size: clamp(0.8rem, 0.7vw, 8rem);
+    line-height: 1.42;
+    text-align: center;
+
+    position: fixed;
+
+    width: 28%;
+
+    left: 0;
+    bottom: 0;
+
+    padding: 1.2% 1.2% 1.2% 1.2%;
+    margin: 1.25%;
+
+    border-radius: 1.5vw;
+    box-shadow: 0 0 0.5vw rgba(126, 126, 126, 0.493);
+
+    background-color: var(--post-bg);
+
+    z-index: 5;
+}
+
+.cookies-button {
+    width: 50%;
+    margin: 5% 2% 0 2%;
+}
+
+@media screen and (max-width: 800px) {
+    #cookies-Popup {
+        width: 70%;
+
+        padding: 4%;
+
+        left: 15%;
+        margin-bottom: 2%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #cookies-Popup {
+        width: 100%;
+        padding: 6%;
+        margin: 0;
+
+
+        left: 0;
+        right: 0;
+
+        margin-bottom: 0;
+
+        border-radius: 0;
+    }
+
+    .cookies-button {
+        padding: 5%;
+    }
 }
