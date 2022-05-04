@@ -23,13 +23,14 @@
     content: '\0000a0';
 }
 
-.color {
+/* color class with hidden ::after until the element is hovered */
+.color-hover {
     overflow: hidden;
 
     user-select: text;
 }
 
-.color::after {
+.color-hover::after {
     position: relative;
     display: block;
     content: attr(title);
@@ -41,15 +42,41 @@
     background-color: var(--post-bg);
     /* dark mode = rgb(58, 58, 58) */
 
-    height: 4vh;
+    height: 3.5vh;
     top: 15vh;
 
     transition: top 0.05s;
 }
 
-.color:hover::after {
-    top: 11vh;
+.color-hover:hover::after {
+    top: 11.5vh;
 }
+
+/* color class with static ::after shown at the bottom */
+.color-static {
+    overflow: hidden;
+
+    user-select: text;
+}
+
+.color-static::after {
+    position: relative;
+    display: block;
+    content: attr(title);
+
+    text-align: center;
+    font-size: clamp(0.85rem, 0.85vw, 10rem);
+
+    color: var(--text);
+    background-color: var(--post-bg);
+    /* dark mode = rgb(58, 58, 58) */
+
+    height: 3.5vh;
+    top: 11.5vh;
+
+    transition: top 0.05s;
+}
+
 
 .cookiesPopup {
     font-family: Roboto, "Open Sans", Arial, Helvetica;
