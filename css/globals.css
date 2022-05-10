@@ -39,8 +39,8 @@ h2 {
 }
 
 h3 {
+    font-size: clamp(1.25rem, 1.85vw, 15rem);
     font-weight: 500;
-    font-size: 1.25rem;
 }
 
 button {
