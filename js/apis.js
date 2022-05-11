@@ -391,7 +391,7 @@ async function setElements () {
     document.getElementById("WOD").textContent = window.localStorage.getItem("WOD");
     // Phonetics if avaliable
     if (window.localStorage.getItem("WODPhonetic") != 'undefined' && window.localStorage.getItem("WODPhonetic") != null) {
-        document.getElementById("WODPhonetic").textContent = "• " + window.localStorage.getItem("WODPhonetic");
+        document.getElementById("WODPhonetic").textContent = " • " + window.localStorage.getItem("WODPhonetic");
     } else
         document.getElementById("WODPhonetic").style.display = "none";
     // Definition 1

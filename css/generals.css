@@ -12,7 +12,7 @@
 
     background-color: var(--post-bg);
 
-    padding: 16.9vh 3vw 3vw 3vw;
+    padding: 12vh 3vw 3vw 3vw;
 
     border-radius: 0.25vw;
 
@@ -21,6 +21,14 @@
 
 #WODPhonetic::before {
     content: '\0000a0';
+}
+
+/* main color class */
+.color-main {
+    min-width: 6vw;
+
+    width: 25%;
+    height: 15vh;
 }
 
 /* color class with hidden ::after until the element is hovered */
@@ -36,7 +44,7 @@
     content: attr(title);
 
     text-align: center;
-    font-size: clamp(0.85rem, 0.85vw, 10rem);
+    font-size: clamp(0.75rem, 0.85vw, 10rem);
 
     color: var(--text);
     background-color: var(--post-bg);
@@ -65,7 +73,7 @@
     content: attr(title);
 
     text-align: center;
-    font-size: clamp(0.85rem, 0.85vw, 10rem);
+    font-size: clamp(0.75rem, 0.85vw, 10rem);
 
     color: var(--text);
     background-color: var(--post-bg);
