@@ -48,7 +48,7 @@ button {
     background-color: var(--button-bg);
     border: none;
     min-width: max-content;
-    padding: 1.4%;
+    padding: 5%;
     border-radius: 15px;
 }
 
