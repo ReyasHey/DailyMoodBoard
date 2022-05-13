@@ -115,7 +115,7 @@
     margin: 5% 2% 0 2%;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-aspect-ratio: 1/1) {
     #cookies-Popup {
         width: 70%;
 
@@ -124,9 +124,14 @@
         left: 15%;
         margin-bottom: 2%;
     }
+
+    /* Make info section touch the top of the screen (like its another page altogether) */
+    .info {
+        top: 0;
+    }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-aspect-ratio: 5/8) {
     #cookies-Popup {
         width: 100%;
         padding: 6%;
