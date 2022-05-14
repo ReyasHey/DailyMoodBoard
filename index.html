@@ -19,13 +19,14 @@
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" defer></script>
         <script src="./js/apis.js" defer></script>
         <script src="./js/switches.js" defer></script>
+
         <script src="./debug/debug.js" defer></script>
 
         <script src="./js/analytics.js" defer></script>
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-DC5KFZZ9EV"></script>
-        <script>
+        <!-- <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
@@ -36,9 +37,9 @@
                 'ad_storage': 'granted',
                 'analytics_storage': 'granted'
             });
-        </script>
+        </script> -->
     </head>
-    <body onload="setElements(), initializeMode()">
+    <body onload="setElements()">
         <header>
             <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
                 <div style="height: 5vh; display: flex; flex-direction: row; z-index: 5;">
@@ -55,18 +56,20 @@
                     <svg id="infoSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="height: 5vh; padding: 0 0.3vw; fill: var(--switch-fill);"><title>Info Section</title><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 400c-18 0-32-14-32-32s13.1-32 32-32c17.1 0 32 14 32 32S273.1 400 256 400zM325.1 258L280 286V288c0 13-11 24-24 24S232 301 232 288V272c0-8 4-16 12-21l57-34C308 213 312 206 312 198C312 186 301.1 176 289.1 176h-51.1C225.1 176 216 186 216 198c0 13-11 24-24 24s-24-11-24-24C168 159 199 128 237.1 128h51.1C329 128 360 159 360 198C360 222 347 245 325.1 258z"/></svg>
                 </label>
                 <aside id="info" class="info">
+                    <hr style="margin: 1.33vh 1vh 1vh 1vh;">
+
                     <h2>General Information</h2>
                     <p>Welcome to your Daily Mood Board,</p>
                     <p>Here you'll find a daily word, a daily palette of colors and in the future also daily images.</p>
 
-                    <br>
+                    <hr style="margin: 1.33vh 1vh 1vh 1vh;">
 
                     <h2>Who would use this site and what is it for?</h2>
                     <p>Anybody can freely use this site (up to a certain amount of people per hour).</p>
                     <p>And this site was created with a simple idea in mind, to jostle creativity in moments of creative draught.</p>
                     <p>Althought it can be useful to learn new words, give color to your day and even just to get inspired daily.</p>
 
-                    <br>
+                    <hr style="margin: 1.33vh 1vh 1vh 1vh;">
 
                     <h2>Why is some content not loading?</h2>
                     <p>It usually takes a couple of seconds to fetch all the information from the APIs.</p>
@@ -74,7 +77,7 @@
                        APIs has been used all up, I might consider upgrading if this site turns useful for enough people.<br>
                        For now you can try again in the next hour.</p>
 
-                    <br>
+                    <hr style="margin: 1.33vh 1vh 1vh 1vh;">
 
                     <h2>Cookie Policy</h2>
                     <p>We use cookies to make sure that every user can get the best possible experience.</p>
@@ -82,13 +85,13 @@
                 </aside>
             </div>
 
-            <p> Mood Board to jostle mood and inspire creative juices<br>
+            <p style="text-shadow: 0 0 0.2vw rgba(238, 238, 238, 0.420);"> Mood Board to jostle mood and inspire creative juices<br>
                 That refreshes daily</p>
         </header>
 
         <main>
             <!-- Word of the Day -->
-            <article id="WODPost" class="post">
+            <article id="WODPost" class="post WODPost">
                 <h2>Word of the Day</h2>
 
                 <div style="display: flex; flex-direction: row;">
@@ -108,7 +111,7 @@
             </article>
 
             <!-- Colors of the Day -->
-            <article id="CODPost" class="post" style="padding: 0;">
+            <article id="CODPost" class="post">
                 <div style="display: flex; flex-direction: row; align-items: center; width: 100%; height: 100%; padding: 1vw;">
                     <!-- Invisible element to have the next div centered -->
                     <svg style="visibility: hidden; height: 5vh; margin-left: auto; margin-right: 1vw;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M384 64C490 64 576 149.1 576 256C576 362 490 448 384 448H192C85.96 448 0 362 0 256C0 149.1 85.96 64 192 64H384zM384 352C437 352 480 309 480 256C480 202.1 437 160 384 160C330.1 160 288 202.1 288 256C288 309 330.1 352 384 352z"/></svg>
@@ -126,7 +129,6 @@
                     <div id="color4" class="color-main color-hover"></div>
                     <div id="color5" class="color-main color-hover"></div>
                 </div>
-                <!-- ! TODO : make them column when mobile? -->
             </article>
 
             <!-- Just spacer at the bottom of the page -->
