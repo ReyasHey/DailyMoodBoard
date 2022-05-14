@@ -306,6 +306,8 @@ function getPhonetic (urlWord) {
 
 
 function getCOD (hex) {
+    window.localStorage.setItem("COD", hex);
+
     return $.ajax({
         url: 'https://www.colourlovers.com/api/palettes',
         dataType: 'jsonp',                  // Ask for reply in jsonp hence no CORS
@@ -348,19 +350,19 @@ async function limitRate () {
         window.localStorage.removeItem("WODDefinition2");
         window.localStorage.removeItem("WODPhonetic");
         window.localStorage.removeItem("CODTitle");
+        window.localStorage.removeItem("COD");
+        window.localStorage.removeItem("COD1");
         window.localStorage.removeItem("COD2");
         window.localStorage.removeItem("COD3");
         window.localStorage.removeItem("COD4");
         window.localStorage.removeItem("COD5");
-        // Today is the last
+        // Today is the last day we've called the functions
         window.localStorage.setItem("reqDay", today);
         // Wordnik API
         await getWOD();                                                         //  ! TODO: Check if
         await getSingularWOD(window.localStorage.getItem("WOD"));               //  ! TODO: We exceeded
         await getPhonetic(window.localStorage.getItem("WOD"));                  //  ! TODO: The amount of calls
-        console.log("Asking for ddefinition here");
         await getWODDefinition(window.localStorage.getItem("WOD"));             //  ! TODO: For our free key
-        console.log("Done asking for ddefinition here");
 
         // ColourLover API
         hex = hexToday();
@@ -382,6 +384,9 @@ async function setElements () {
     console.log(window.localStorage);
 
     await limitRate();
+
+    // Initialize color theme after calling the APIs
+    initializeMode();
 
     console.log("End of call storage:");
     console.log(window.localStorage);
