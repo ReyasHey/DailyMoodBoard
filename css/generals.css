@@ -50,14 +50,14 @@
     background-color: var(--post-bg);
     /* dark mode = rgb(58, 58, 58) */
 
-    height: 3.5vh;
+    height: 3.7vh;
     top: 15vh;
 
     transition: top 0.05s;
 }
 
 .color-hover:hover::after {
-    top: 11.5vh;
+    top: 11.6vh;
 }
 
 /* color class with static ::after shown at the bottom */
@@ -79,8 +79,8 @@
     background-color: var(--post-bg);
     /* dark mode = rgb(58, 58, 58) */
 
-    height: 3.5vh;
-    top: 11.5vh;
+    height: 3.7vh;
+    top: 11.6vh;
 
     transition: top 0.05s;
 }
