@@ -46,6 +46,12 @@ h3 {
     font-weight: 500;
 }
 
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--text);
+}
+
 button {
     color: var(--button-text);
     background-color: var(--button-bg);
