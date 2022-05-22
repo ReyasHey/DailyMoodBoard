@@ -48,7 +48,7 @@
                 <!-- Center on Desktop, then Right side in Mobile -->
                 <div style="display: flex; flex-direction: row; align-items: center; width: 100%; justify-content: center;">
                     <!-- Light/Dark Switch -->
-                    <div style="height: 5vh; display: flex; flex-direction: row; z-index: 5; padding: 0 2vw;">
+                    <div style="height: 5vh; display: flex; flex-direction: row; z-index: 5;">
                         <!-- Sun Svg -->
                         <svg id="LightSwitch" onclick="lightMode()" style="fill: var(--switch-fill); padding-bottom: 2vh; margin-right: -0.5vw; cursor: pointer;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><title>Light Mode</title><circle cx="255.9" cy="253" r="111.1"/><path d="M406.6 270.5h71.3c9.7 0 17.5-7.8 17.5-17.5s-7.8-17.5-17.5-17.5h-71.3c-9.7 0-17.5 7.8-17.5 17.5s7.8 17.5 17.5 17.5m-372.5 0h71.3c9.7 0 17.5-7.8 17.5-17.5s-7.8-17.5-17.5-17.5H34.1c-9.7 0-17.5 7.8-17.5 17.5s7.9 17.5 17.5 17.5m239.3-168.1V31.1c0-9.7-7.8-17.5-17.5-17.5s-17.5 7.8-17.5 17.5v71.3c0 9.7 7.8 17.5 17.5 17.5s17.5-7.8 17.5-17.5m0 372.5v-71.3c0-9.7-7.8-17.5-17.5-17.5s-17.5 7.8-17.5 17.5v71.3c0 9.7 7.8 17.5 17.5 17.5s17.5-7.9 17.5-17.5"/><path d="M374.8 158.9l50.4-50.4c6.8-6.8 6.8-17.9 0-24.7s-17.9-6.8-24.7 0l-50.4 50.4c-6.8 6.8-6.8 17.9 0 24.7s17.9 6.8 24.7 0M111.5 422.3l50.3-50.4c6.8-6.8 6.8-17.9 0-24.7s-17.9-6.8-24.7 0l-50.3 50.4c-6.8 6.8-6.8 17.9 0 24.7s17.9 6.8 24.7 0m238.6-50.4l50.4 50.4c6.8 6.8 17.9 6.8 24.7 0s6.8-17.9 0-24.7l-50.4-50.4c-6.8-6.8-17.9-6.8-24.7 0-6.9 6.7-6.9 17.8 0 24.7M86.7 108.5l50.3 50.4c6.8 6.8 17.9 6.9 24.7 0 6.8-6.8 6.9-17.9 0-24.7l-50.3-50.4c-6.8-6.8-17.9-6.9-24.7 0-6.8 6.7-6.8 17.8 0 24.7"/></svg>
                         <!-- Separator Line -->
@@ -58,11 +58,11 @@
                     </div>
 
                     <!-- Header Text-->
-                    <h1 style="z-index: 5; line-height: 1.2em;">Daily <br> Mood Board</h1>
+                    <h1 style="z-index: 5; line-height: 1.2em; padding: 0 2vw;">Daily <br> Mood Board</h1>
 
                     <!-- Information -->
                     <input type="checkbox" name="infoBtn" id="infoBtn" class="infoBtn" style="display: none;">
-                    <label for="infoBtn" style="z-index: 5; cursor: pointer; padding: 0 2vw;">
+                    <label for="infoBtn" style="z-index: 5; cursor: pointer;">
                         <svg id="infoSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="height: 5vh; fill: var(--switch-fill);"><title>Info Section</title><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 400c-18 0-32-14-32-32s13.1-32 32-32c17.1 0 32 14 32 32S273.1 400 256 400zM325.1 258L280 286V288c0 13-11 24-24 24S232 301 232 288V272c0-8 4-16 12-21l57-34C308 213 312 206 312 198C312 186 301.1 176 289.1 176h-51.1C225.1 176 216 186 216 198c0 13-11 24-24 24s-24-11-24-24C168 159 199 128 237.1 128h51.1C329 128 360 159 360 198C360 222 347 245 325.1 258z"/></svg>
                     </label>
                     <aside id="info" class="info">
