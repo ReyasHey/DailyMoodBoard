@@ -78,31 +78,14 @@ function getPstDate () {
 
 
 
-function changeHex (hexString) {
-    var hexString = hexString.toString();                      // String holding the starting hexadeimal
+function changeHex (hex) {
+    console.log("Hex in: " + hex);
 
-    console.log("HEX IN = " + hexString);
+    hex = parseInt(hex, 16);    // Turn string of base 16 into base 10 number
+    hex++;
+    hex = hex.toString(16);     // Turn number in base 10 into string with base 16
 
-    var hex = 0;
-
-    var char;                           // Holding single character at a time
-
-    var shift = window.localStorage.getItem("day");                             // Ceasar cypher shift
-    shift = shift.charAt(shift.length-1);                                       // Based on the last digit of the day
-
-    for (let i = 0; i < 6; i++) {
-        char = hexString.charCodeAt(i) + +shift;            // translate letter at i position into ascii number + add cypher shift
-
-        hex = hex + char.toString(16);                      // turn the last number cyohered => hexadecimal, and add to the string
-    }// for
-
-
-    if (hex.length > 6) {                           // The word is longer than 6 letters =>
-        hex = hex.slice(0, 6);                      //Trim it to 6 letters
-    }
-
-
-    console.log("HEX OUT = " + hex);
+    console.log("Hex out: " + hex);
 
     return hex;
 }
@@ -364,7 +347,7 @@ async function limitRate () {
         await getPhonetic(window.localStorage.getItem("WOD"));                  //  ! TODO: The amount of calls
         await getWODDefinition(window.localStorage.getItem("WOD"));             //  ! TODO: For our free key
 
-        // ColourLover API
+        // ColourLover API for the first time
         hex = hexToday();
         await getCOD(hex);
 
