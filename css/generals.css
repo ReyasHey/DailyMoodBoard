@@ -25,6 +25,12 @@
     z-index: 1;
 }
 
+.infoHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .socialLinks {
     width: 100%;
 
