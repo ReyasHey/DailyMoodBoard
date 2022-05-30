@@ -32,14 +32,15 @@
 }
 
 .infoCoverBanner {
-    position: sticky;
+    position: fixed;
 
-    top: -8em;
+    top: inherit;
+    right: inherit;
 
-    margin: -5em -3vw 0 -3vw;
+    margin: 0 -3vw 0 -3vw;
 
     width: 780px;
-    height: 10vh;
+    height: 10vw;
 
     background-color: var(--post-bg);
 }
@@ -52,7 +53,7 @@
 
     max-width: 800px;
     max-height: 88%;
-    padding: 8em 3vw 3vw 3vw;
+    padding: 10vw 3vw 3vw 3vw;
 
     border-radius: 0.25vw;
 
@@ -204,7 +205,13 @@
     /* Make info section touch the top of the screen (like its another page altogether) */
     .infoPopup {
         top: 0;
-        padding: 10vh 7vw 7vw 7vw;
+        padding: 15vh 7vw 7vw 7vw;
+    }
+
+    .infoCoverBanner {
+        height: 15vh;
+
+    background-color: var(--post-bg);
     }
 }
 
