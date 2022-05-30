@@ -82,6 +82,9 @@ button {
 header {
     text-align: center;
     height: min-content;
+}
+
+header.topPadding {
     padding-top: calc(0.85vw + 2vh);
 }
 
