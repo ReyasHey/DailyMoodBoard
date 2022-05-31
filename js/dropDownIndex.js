@@ -1,3 +1,12 @@
+function toggleInfo () {
+    var info = document.getElementById("infoOverlay");
+
+    if(info.style.display.localeCompare("flex") == 0)
+        info.style.display = "none";
+    else
+        document.getElementById("infoOverlay").style.display = "flex";
+}
+
 function toggleDetails(id) {
     var details = document.getElementById(id);
 
