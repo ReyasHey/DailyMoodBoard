@@ -30,6 +30,19 @@ body {
     background-size: auto;
 }
 
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(136, 136, 136, 0.411);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 15px;
+}
+
 h1 {
     font-size: clamp(1.75rem, 3.5vw, 20rem);
     line-height: 1.2em;
