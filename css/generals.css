@@ -66,8 +66,13 @@
     overflow-y: scroll;
 }
 
+.infoH2 {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+}
+
 .generalDetails {
-    font-size: clamp(1rem, 1.5vw, 5rem);
+    font-size: clamp(1rem, 1.25vw, 10rem);
 }
 
 .socialLinks {
@@ -186,7 +191,7 @@
     margin: 1.25%;
 
     border-radius: 1.5vw;
-    box-shadow: 0 0.025vw 0.06vw rgba(85, 85, 85, 0.11);
+    box-shadow: -1px 0vw 1vw 6px rgb(85 85 85 / 11%);
 
     background-color: var(--post-bg);
 
