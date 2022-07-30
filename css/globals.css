@@ -1,3 +1,15 @@
+:root {
+    --text: black;
+
+    --body-bg: #ebecee;
+    --post-bg: #fefefe;
+
+    --switch-fill: black;
+
+    --button-text: #e8e6e3;
+    --button-bg: #1e1e1e;
+}
+
 * {
     margin: 0;
     box-sizing: border-box;
@@ -6,13 +18,6 @@
 html {
     height: 100%;
     width: 100%;
-
-    --text: black;
-    --body-bg: #ebecee;
-    --post-bg: #fefefe;
-    --switch-fill: black;
-    --button-text: #e8e6e3;
-    --button-bg: #1e1e1e;
 }
 
 body {
