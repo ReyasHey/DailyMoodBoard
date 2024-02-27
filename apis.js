@@ -295,7 +295,10 @@ function getPhonetic (urlWord) {
         .then(data => {
             console.log(data);
 
-            WODPhonetic = data[0].raw;
+            if(data[0]?.raw)
+                WODPhonetic = data[0].raw;
+            else
+                WODPhonetic = "";
 
             window.localStorage.setItem("WODPhonetic", WODPhonetic);
         }).catch((error) => {

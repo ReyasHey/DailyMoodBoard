@@ -278,7 +278,10 @@ function getPhonetic (urlWord) {
         .then(data => {
             console.log(data);
 
-            WODPhonetic = data[0].raw;
+            if(data[0]?.raw)
+                WODPhonetic = data[0].raw;
+            else
+                WODPhonetic = "";
 
             window.localStorage.setItem("WODPhonetic", WODPhonetic);
         }).catch((error) => {
@@ -290,6 +293,7 @@ function getPhonetic (urlWord) {
 
 function getCOD (hex) {
     window.localStorage.setItem("COD", hex);
+
 
     return $.ajax({
         url: 'https://www.colourlovers.com/api/palettes',
