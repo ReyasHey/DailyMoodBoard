@@ -302,6 +302,10 @@ function getPhonetic (urlWord) {
 
             window.localStorage.setItem("WODPhonetic", WODPhonetic);
         }).catch((error) => {
+            WODPhonetic = "";
+
+            window.localStorage.setItem("WODPhonetic", WODPhonetic);
+
             console.error('Error:' + error);
         });
 }// getPhonetic
